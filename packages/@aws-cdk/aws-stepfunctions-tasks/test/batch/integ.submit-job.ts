@@ -41,9 +41,9 @@ class RunBatchStack extends cdk.Stack {
     });
 
     const submitJob = new BatchSubmitJob(this, 'Submit Job', {
-      jobDefinition: batchJobDefinition,
+      jobDefinitionArn: batchJobDefinition.jobDefinitionArn,
       jobName: 'MyJob',
-      jobQueue: batchQueue,
+      jobQueueArn: batchQueue.jobQueueArn,
       containerOverrides: {
         environment: { key: 'value' },
         memory: cdk.Size.mebibytes(256),
